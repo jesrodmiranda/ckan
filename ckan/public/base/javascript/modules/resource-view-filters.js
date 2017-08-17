@@ -171,13 +171,13 @@ this.ckan.module('resource-view-filters', function (jQuery, _) {
     initialize: initialize,
     options: {
       dropdownTemplate: [
-        '<div class="resource-view-filter">',
+        '<div class="resource-view-filter col-md-10">',
         '  {filter}:',
         '  <div class="resource-view-filter-values"></div>',
         '</div>',
       ].join('\n'),
       addFilterTemplate: [
-        '<a href="#" class="btn btn-default bakground-search">Agregar Filtro</a>',
+        '<a href="#" class="btn btn-default bakground-search"><span class="glyphicon glyphicon-plus" style="margin-right:10px"></span>Agregar Filtro</a>',
       ].join('\n')
     }
   };
