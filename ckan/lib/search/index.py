@@ -254,10 +254,11 @@ class PackageSearchIndex(SearchIndex):
         # with UTC time (i.e trailing Z)
         # See http://lucene.apache.org/solr/api/org/apache/solr/schema/DateField.html
         # Re build index fix
-        if 'metadata_created' in pkg_dict and isinstance(pkg_dict['metadata_created'],str):
-	    pkg_dict['metadata_created'] += 'Z'
-        if 'metadata_modified' in pkg_dict and isinstance(pkg_dict['metadata_modified'],str):
-            pkg_dict['metadata_modified'] += 'Z'
+        pkg_dict['metadata_modified'] += 'Z'
+        if isinstance(pkg_dict['metadata_created'],str):
+            pkg_dict['metadata_created'] += 'Z'
+        else:
+            pkg_dict['metadata_created'] = pkg_dict['metadata_modified']
 
         # mark this CKAN instance as data source:
         pkg_dict['site_id'] = config.get('ckan.site_id')
